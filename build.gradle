@@ -33,6 +33,7 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     runtimeOnly 'com.mysql:mysql-connector-j'
+    runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     // https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-api
     implementation("io.jsonwebtoken:jjwt-api:0.11.5") //메이븐 리포지토리에서 jjwt 가져옴 이거 보안관련에? 쓰이는거랬는데 기억 안남
@@ -40,6 +41,14 @@ dependencies {
     runtimeOnly("io.jsonwebtoken:jjwt-impl:0.11.5") //jjwt 토큰 검증해주는거(우리가 발급한게 맞는지)
     // https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-jackson
     runtimeOnly("io.jsonwebtoken:jjwt-jackson:0.11.5")
+}
+
+springBoot {
+    mainClass = 'com.carbackend.CarbackendApplication'
+}
+
+bootJar {
+    archiveFileName = 'carBackend.jar'
 }
 
 tasks.named('test') {
